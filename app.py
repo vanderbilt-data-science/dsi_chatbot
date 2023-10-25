@@ -12,9 +12,8 @@ from langchain.chains import RetrievalQA, LLMChain
 from langchain.prompts import PromptTemplate
 
 # get the api key from the .env file
-load_dotenv()
-api_key = os.getenv("OPENAI_API_KEY")
-
+openai_api_key = os.getenv("OPENAI_API_KEY")
+print(openai_api_key)
 
 
 """ pull the stored embeddings """
