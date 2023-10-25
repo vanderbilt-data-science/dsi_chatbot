@@ -1,4 +1,4 @@
-langchain==0.0.24
+langchain==0.0.240
 openai==0.27.8
 tiktoken==0.4.0
 faiss-cpu==1.7.4
