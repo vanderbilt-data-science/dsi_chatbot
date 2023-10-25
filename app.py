@@ -2,8 +2,8 @@ import os
 import gradio as gr
 import time
 import openai
+from dotenv import load_dotenv
 
-# from langchain.llms import OpenAI
 import pickle
 from huggingface_hub import hf_hub_download
 from langchain.chat_models import ChatOpenAI
@@ -11,12 +11,18 @@ from langchain.memory import ConversationBufferMemory
 from langchain.chains import RetrievalQA, LLMChain
 from langchain.prompts import PromptTemplate
 
-api_key = os.environ['OPENAI_API_KEY']
+# get the api key from the .env file
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+
+
 
 """ pull the stored embeddings """
 embedding_file = hf_hub_download(repo_id="yahanyang777/DSI_web_content", filename="faiss_store_openai.pkl", repo_type="dataset")
 with open(embedding_file, 'rb') as f:
   VectorStore = pickle.load(f)
+
+print(VectorStore)
 
 """ initialize all the tools """
 
@@ -64,7 +70,6 @@ Frequently Asked Questions:
 • https://www.vanderbilt.edu/datascience/academics/msprogram/program-details/
 Question: {question}
 Helpful Answer:"""
-
 
 
 QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context", "question"], template=template,)
@@ -172,8 +177,4 @@ demo = gr.ChatInterface(
     retry_btn=None,
     undo_btn=None,
     clear_btn="Clear",
-    
 ).queue()
-
-if __name__ == "__main__":
-    demo.launch()

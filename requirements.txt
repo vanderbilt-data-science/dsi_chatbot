@@ -4,5 +4,4 @@ tiktoken==0.4.0
 faiss-cpu==1.7.4
 unstructured==0.8.0
 boto3==1.28.20
-Flask==2.2.2
 gradio
