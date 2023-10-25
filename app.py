@@ -74,7 +74,7 @@ Helpful Answer:"""
 
 QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context", "question"], template=template,)
 
-chat_model = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
+chat_model = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', openai_api_key=api_key)
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 answer_chain = RetrievalQA.from_chain_type(
