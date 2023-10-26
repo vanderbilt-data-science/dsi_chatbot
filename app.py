@@ -12,8 +12,8 @@ from langchain.chains import RetrievalQA, LLMChain
 from langchain.prompts import PromptTemplate
 
 # get the api key from the .env file
-openai_api_key = os.getenv("OPENAI_API_KEY")
-print(openai_api_key)
+# openai_api_key = os.getenv("OPENAI_API_KEY")
+# print(openai_api_key)
 
 
 """ pull the stored embeddings """
@@ -73,7 +73,7 @@ Helpful Answer:"""
 
 QA_CHAIN_PROMPT = PromptTemplate(input_variables=["context", "question"], template=template,)
 
-chat_model = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo', openai_api_key=openai_api_key)
+chat_model = ChatOpenAI(temperature=0, model_name='gpt-3.5-turbo')
 memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
 answer_chain = RetrievalQA.from_chain_type(
