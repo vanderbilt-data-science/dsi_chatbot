@@ -168,11 +168,11 @@ def slow_echo(usr_message, chat_history):
 
 demo = gr.ChatInterface(
     slow_echo,
-    chatbot=gr.Chatbot(height=200),
+    chatbot=gr.Chatbot(height=200, label="DSI Web Chatbot"),
     textbox=gr.Textbox(label='Type in / choose your questions about DSI here and press Enter!',
                        placeholder='Type in your questions.', container=False, scale=7),
-    title="DSI Web - LangChain Bot",
-    examples=["Is this an online program?", "Are there any scholarships?", "Can I apply with a 3-year degree?"],
+    # title="DSI Web - LangChain Bot",
+    examples=["Is this an online program?", "Are there any scholarships?", "Is the GRE required?"],
     cache_examples=True,
     retry_btn=None,
     undo_btn=None,
