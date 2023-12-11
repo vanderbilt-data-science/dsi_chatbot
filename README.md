@@ -1,1 +1,1 @@
-This is a repository for a Chatbot designed for DSI web content. We host this bot on Render. The primary code for the Chatbot is located in 'app.py'. Additionally, 'web_content.py' is used to update the vector store whenever significant changes are made on the DSI website.
+This is a repository for a Chatbot designed for DSI web content. We host this Gradio Chatbot on Render. The primary code for the Chatbot is located in `app.py`. Additionally, `store_content.py` is used to update the vector store whenever significant changes are made on the DSI website.
